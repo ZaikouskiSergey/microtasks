@@ -1,17 +1,24 @@
 import React from 'react';
-import logo from './logo.svg';
 import './App.css';
 import {Header} from "./components/header";
 import {Body} from "./components/body";
 import {Footer} from "./components/footer";
 
-function App() {
+type AppType = {
+    state: Array<CarType>
+}
+type CarType = {
+    manufacturer: string,
+    model: string
+
+}
+
+function App(props: AppType) {
     return (
         <div className="App">
             <Header title={"New Body"}/>
-            <Body titleForBody={"NEW BODY"}/>
-            <Footer titleForFooter={"New Footer"} />
-
+            <Body titleForBody={"NEW BODY"} listCars={props.state}/>
+            <Footer titleForFooter={"New Footer"}/>
         </div>
     );
 }
