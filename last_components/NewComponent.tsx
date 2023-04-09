@@ -1,5 +1,6 @@
-import React from "react";
-import {NewButtonType} from "../App";
+/*
+/!*import React from "react";
+import {NewButtonType} from "../App";*!/
 
 export type CurrentType ={
     banknots: string
@@ -35,4 +36,4 @@ return(
             <button onClick={() => props.onClickHandler('dollar')}>dollar</button>
         </div>
     </>
-)}
+)}*/
