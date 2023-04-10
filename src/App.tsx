@@ -1,34 +1,37 @@
 import React, {useState} from 'react';
 import './App.css';
-import {FullInput} from "./components/FullInput";
-import {Input} from "./components/Input";
-import {Button} from "./components/Button";
+import {SuperButton} from "./components/SuperButton";
+import {Adidas} from "./components/Adidas";
 
 
 function App() {
-    let [message, setMessage] = useState([
-        {message: 'message1'},
-        {message: 'message2'},
-        {message: 'message3'}
-    ])
-    let [title, setTitle] = useState('')
+    const prices=[
+        {id:1, model: 'html1', price:100200},
+        {id:2, model: 'html2', price:100200},
+        {id:3, model: 'html3', price:100200},
+        {id:4, model: 'html4', price:100200}
+    ]
 
-    const addMessage = () => {
-        let newMessage = {message: title}
-        setMessage([newMessage, ...message])
-    }
-    const callbackButtonHandler =()=>{
-        addMessage();
-        setTitle('')
-    }
     return (
         <div className={'App'}>
-            <Input title={title} setTitle={setTitle}/>
-            <Button name={'+'} callBack={callbackButtonHandler}/>
-            {/*<FullInput addMessage={addMessage}/>*/}
-            {message.map((el, index) => {
-                return (<div key={index}>{el.message}</div>)
-            })}
+          {/* <SuperButton name={'RedButton'} callBack={()=>{}} color={'red'}/>*/}
+
+
+            <Adidas prices={prices}>
+                <SuperButton callBack={()=>{}} color={'red'}>RedButton</SuperButton>
+                <SuperButton callBack={()=>{}} color={'secondary'}>RedButton</SuperButton>
+                <SuperButton callBack={()=>{}} disabled>RedButton</SuperButton>
+            </Adidas>
+            <Adidas prices={prices}>
+                <input type="text"/>
+                <input type="text"/>
+                <input type="text"/>
+                <SuperButton callBack={()=>{}} disabled>RedButton</SuperButton>
+            </Adidas>
+            <Adidas prices={prices}>
+
+            </Adidas>
+
         </div>
     )
 
