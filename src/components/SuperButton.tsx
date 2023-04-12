@@ -1,60 +1,12 @@
-import React from "react";
-import s from "./SuperButton.module.css"
-
-export type PropsType = {
-    name?: string
-    callBack: () => void
-    color?: string
-    children?: React.ReactNode
-    disabled?: boolean
+type SuperButtonType={
+    name: string
+    callback: ()=>void
 }
-export const SuperButton: React.FC<PropsType> = (props) => {
-    const {name, callBack, color, ...restProps} = props
+export const SuperButton = (props:SuperButtonType) => {
     const onClickHandler = () => {
-        callBack()
+        props.callback()
     }
-
-// const finalClassName = s.button + ' ' + s.red
-    //   const finalClassName =`${s.button} ${s.default}`
-    /*  const finalClassName = `
-      ${s.button}
-      ${color === 'red' ? s.red : s.default}
-      ${restProps.disabled ? s.disabled : ''}
-      `*/
-    const finalClassName = `
-    ${s.button} 
-    ${color === 'red' ? s.red : color === 'secondary' ? s.secondary : s.default} 
-    ${restProps.disabled ? s.disabled : ''} 
-    `
-
     return (
-        <button className={finalClassName} onClick={onClickHandler}>
-            {restProps.children}
-        </button>
+        <button onClick={onClickHandler}>{props.name}</button>
     )
 }
-/*export const SuperButton: React.FC<PropsType> = ({
-                                                     name,
-                                                     callBack,
-                                                     ...props}) => {
-    const onClickHandler = () => {
-        callBack()
-    }
-    return (
-        <button onClick={onClickHandler}>
-            {name}
-        </button>
-    )
-}*/
-//--------------------------------------------------
-/*
-export const SuperButton = (props: PropsType) => {
-    const onClickHandler = () => {
-        props.onClick()
-    }
-    return (
-        <button onClick={onClickHandler}>
-            {props.name}
-        </button>
-    )
-}*/
